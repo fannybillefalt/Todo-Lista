@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap');
+
+:root {
+  --bg: #f5f0eb;
+  --surface: #fffaf7;
+  --border: #e8ddd5;
+  --text: #3d3530;
+  --text-muted: #a89d97;
+  --accent: #d4a5a0;
+  --accent-soft: #f2e0de;
+  --done: #b5c9b7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+}
+
+.todo-wrapper {
+  width: 100%;
+  max-width: 480px;
+}
+
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 36px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* INPUT */
+.todo-input-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.todo-input-container input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  outline: none;
+  color: var(--text);
+  transition: border-color 0.2s ease;
+}
+
+.todo-input-container input:focus {
+  border-color: var(--accent);
+}
+
+.todo-input-container input::placeholder {
+  color: var(--text-muted);
+}
+
+.todo-input-container button {
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  background: var(--accent);
+  color: var(--surface);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.todo-input-container button:hover {
+  background: #c49490;
+}
+
+/* LIST */
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ITEM */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+/* CHECKBOX */
+.todo-item input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.todo-item input[type="checkbox"]:checked {
+  background: var(--done);
+  border-color: var(--done);
+}
+
+.todo-item input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  color: white;
+}
+
+/* TEXT */
+.todo-item p {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.todo-item p.completed {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* DELETE BUTTON */
+.todo-item button {
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.todo-item button:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
